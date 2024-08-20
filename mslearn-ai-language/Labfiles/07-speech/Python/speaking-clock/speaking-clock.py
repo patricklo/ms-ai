@@ -65,10 +65,13 @@ def TellTime():
 
 
     # Configure speech synthesis
-    
+    speech_config.speech_synthesis_voice_name = 'en-GB-RyanNeural'
+    speech_synthesizer = speech_sdk.SpeechSynthesizer(speech_config)
 
     # Synthesize spoken output
-
+    speak = speech_synthesizer.speak_text_async(response_text).get()
+    if speak.reason != speech_sdk.ResultReason.SynthesizingAudioCompleted:
+        print(speak.reason)
 
     # Print the response
     print(response_text)
