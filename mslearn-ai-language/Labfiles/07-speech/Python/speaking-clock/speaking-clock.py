@@ -69,7 +69,22 @@ def TellTime():
     speech_synthesizer = speech_sdk.SpeechSynthesizer(speech_config)
 
     # Synthesize spoken output
-    speak = speech_synthesizer.speak_text_async(response_text).get()
+    #Option1
+    #speak = speech_synthesizer.speak_text_async(response_text).get()
+    #if speak.reason != speech_sdk.ResultReason.SynthesizingAudioCompleted:
+    #    print(speak.reason)
+    #Option2
+    #Use Speech Synthesis Markup Language
+    #Speech Synthesis Markup Language (SSML) enables you to customize the way your speech is synthesized using an XML-based format.
+    responseSsml =  " \
+    <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'> \
+        <voice name='en-GB-LibbyNeural'> \
+            {} \
+            <break strength='weak'/> \
+            Time to end this lab! \
+        </voice> \
+    </speak>".format(response_text)
+    speak = speech_synthesizer.speak_ssml_async(responseSsml).get()
     if speak.reason != speech_sdk.ResultReason.SynthesizingAudioCompleted:
         print(speak.reason)
 
