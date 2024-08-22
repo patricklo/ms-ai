@@ -66,8 +66,6 @@ def main():
             citation_json = json.loads(citations)
             for c in citation_json["citations"]:
                 print("  Title: " + c['title'] + "\n    URL: " + c['url'])
-
-
         
     except Exception as ex:
         print(ex)
