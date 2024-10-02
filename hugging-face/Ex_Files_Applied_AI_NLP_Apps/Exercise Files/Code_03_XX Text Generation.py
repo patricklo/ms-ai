@@ -65,10 +65,14 @@ tokenizer = AutoTokenizer.from_pretrained("t5-base")
 
 source_english ="Acme is a technology company based in New York and Paris"
 
-inputs_german = tokenizer("translate English to German: "+source_english, return_tensors="pt")
-outputs_german=model.generate(inputs_german["input_ids"], max_length=40)
-print("German Translation: ", tokenizer.decode(outputs_german[0], skip_special_tokes=True))
+# inputs_german = tokenizer("translate English to German: "+source_english, return_tensors="pt")
+# outputs_german=model.generate(inputs_german["input_ids"], max_length=40)
+# print("German Translation: ", tokenizer.decode(outputs_german[0], skip_special_tokes=True))
+#
+# inputs_french = tokenizer("translate English to French: "+source_english, return_tensors="pt")
+# outputs_french = model.generate(inputs_french["input_ids"], max_length=40)
+# print("French Translation: ", tokenizer.decode(outputs_french[0], skip_special_tokens=True))
 
-inputs_french = tokenizer("translate English to French: "+source_english, return_tensors="pt")
-outputs_french = model.generate(inputs_french["input_ids"], max_length=40)
-print("French Translation: ", tokenizer.decode(outputs_french[0], skip_special_tokens=True))
+inputs_cn = tokenizer("translate English to Chinese: "+source_english, return_tensors="pt")
+outputs_cn = model.generate(inputs_cn["input_ids"], max_length=40)
+print("Chinese Translation: ", tokenizer.decode(outputs_cn[0], skip_special_tokens=True))
