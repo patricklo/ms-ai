@@ -15,7 +15,7 @@ Original file is located at
 # %pip install \
 "python-dotenv==1.0.0" \
 "openai==1.6.1" \
-"pyautogen==0.2.20" \
+"ag2==0.2.20" \
 "pandas==2.0.3" \
 "matplotlib==3.8.0" \
 "seaborn==0.13.2"
